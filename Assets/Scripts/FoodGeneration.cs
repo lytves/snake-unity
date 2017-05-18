@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FoodGeneration : MonoBehaviour {
@@ -12,20 +11,19 @@ public class FoodGeneration : MonoBehaviour {
 
 	public Vector3 currentFoodPosition;
 
-	// Use this for initialization
-	void Start () {
-
+	void AddNewFood(){
 		RandomPosition();
 		currentFood = GameObject.Instantiate(foodPrefab, currentFoodPosition, Quaternion.identity) as GameObject;
-		
+
 	}
-	
 	void RandomPosition(){
 		currentFoodPosition = new Vector3(Random.Range(-xSize, xSize), 0.35f, Random.Range(-zSize, zSize));
 
 	}
 	// Update is called once per frame
 	void Update () {
-		
+		if(!currentFood){
+			AddNewFood();
+		}
 	}
 }
