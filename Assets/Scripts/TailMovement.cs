@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class TailMovement : MonoBehaviour {
 
 	public float speed;
-	//public float rotationSpeed = 75;
+
 	public GameObject tailTarget;
 	public Vector3 tailTargetPosition;
+	
 	public SnakeMovement mainSnake;
-	// Use this for initialization
 	public int numberTarget;
+
+	// Use this for initialization
 	void Start () {
 		mainSnake = GameObject.FindWithTag("SnakeHead").GetComponent<SnakeMovement>();
 		tailTarget = mainSnake.tailObjects[mainSnake.tailObjects.Count-2];

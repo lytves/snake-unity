@@ -7,15 +7,19 @@ public class SnakeMovement : MonoBehaviour {
 
 	public float speed = 2.0f;
 	public float rotationSpeed = 180.0f;
+	
 	public List<GameObject> tailObjects = new List<GameObject>();
-	//public float zOffset = 0.6f;
 	public GameObject tailPrefab;
+
 	public Text scoreText;
 	public int scoreNumber = 0;
 
+	public Text bestScoreText;
+	int bestScoreNumber = 0;
 
 	// Use this for initialization
 	void Start () {
+		bestScoreNumber = PlayerPrefs.GetInt("bestScore");
 		tailObjects.Add(gameObject);
 	}
 	
@@ -31,17 +35,18 @@ public class SnakeMovement : MonoBehaviour {
 			transform.Rotate(Vector3.down * rotationSpeed * Time.deltaTime);
 		}
 
-		//sobreescribimos el texto UI
+		//sobreescribimos el score número UI
 		scoreText.text = scoreNumber.ToString();
+		bestScoreText.text = bestScoreNumber.ToString();
+
 	}
 
 	public void AddTail(){
 		Vector3 newTailPosition = tailObjects[tailObjects.Count-1].transform.position;
-		//newTailPosition.z -= zOffset;
 		speed += 0.2f;
 		rotationSpeed += 5.0f;
 		tailObjects.Add(GameObject.Instantiate(tailPrefab, newTailPosition, Quaternion.identity) as GameObject);
-
 		scoreNumber++;
+		if (scoreNumber > bestScoreNumber) PlayerPrefs.SetInt("bestScore", scoreNumber);
 	}
 }

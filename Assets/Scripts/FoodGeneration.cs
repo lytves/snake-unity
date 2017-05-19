@@ -8,7 +8,6 @@ public class FoodGeneration : MonoBehaviour {
 
 	public GameObject foodPrefab;
 	public GameObject currentFood;
-
 	public Vector3 currentFoodPosition;
 
 	void AddNewFood(){
