@@ -5,6 +5,6 @@ The scripts are written in C#.
 
 Directory "/docs" is a WebGL build version.
 
-[To play the game](https://lytves.github.io/snake/)
+[To play the game](https://lytves.github.io/snake-unity/)
 
-![Snake game](https://github.com/lytves/snake/raw/master/Assets/Textures/snakeUnity.jpg "Snake game")
+![Snake game](https://github.com/lytves/snake-unity/raw/master/Assets/Textures/snakeUnity.jpg "Snake game")
